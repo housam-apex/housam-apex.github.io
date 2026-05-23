@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>أوراكل أبكس بالعربي | الكتاب المفتوح في Oracle APEX</title>
+    <meta name="description" content="كتاب مجاني مفتوح المصدر لتعلم Oracle APEX باللغة العربية. ترجمة وإضافة بحثية لكتاب Low Code Programming with APEX، مرخص تحت CC BY-SA 4.0.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', 'Cairo', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+            color: #1a2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* الهيدر مع خلفية مستوحاة من الكتب التقنية */
+        .header {
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            background: rgba(255,255,255,0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ff8c00;
+            color: #1e2a32;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* محتوى الصفحة */
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .section {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1.8rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #0f2b3d;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2 i {
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1rem 0 0.8rem;
+            color: #1f4a6e;
+        }
+
+        .book-cover {
+            background: #f0f4f8;
+            border-radius: 24px;
+            padding: 1.8rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 1px solid #cbd5e1;
+        }
+
+        .price-card {
+            background: #fef9e6;
+            border-right: 6px solid #ff8c00;
+            padding: 1.2rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+
+        .address-box {
+            background: #0b1e2a;
+            color: #b7e4fa;
+            font-family: 'Courier New', monospace;
+            direction: ltr;
+            text-align: left;
+            padding: 1rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            word-break: break-all;
+            margin: 1rem 0;
+            border: 1px solid #2d5a79;
+        }
+
+        .warning-note {
+            background: #fff0e0;
+            border-right: 6px solid #ff8c00;
+            padding: 1.2rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff8c00;
+            color: #1e2a32;
+            padding: 0.8rem 1.8rem;
+            border-radius: 48px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #e67e00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .flex-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        /* تذييل الصفحة */
+        .footer {
+            background: #f1f5f9;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.85rem;
+            color: #2d4a6e;
+            border-top: 1px solid #dce5ef;
+        }
+
+        .footer a {
+            color: #1e5a7d;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media (max-width: 700px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- الهيدر -->
+    <div class="header">
+        <h1>📘 أوراكل أبكس بالعربي <span>Oracle APEX</span></h1>
+        <p>ترجمة وإضافة بحثية لكتاب <strong>Low Code Programming with APEX</strong><br> الصادر عن <strong>University of Maribor Press</strong></p>
+        <div class="badge">CC BY-SA 4.0 | مفتوح المصدر</div>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="content">
+        <!-- القسم الأول: عن الكتاب -->
+        <div class="section">
+            <h2>📖 عن هذا المشروع</h2>
+            <p>يهدف هذا الكتاب إلى تقديم المعرفة التقنية في منصة <strong>Oracle APEX</strong> (تطبيقات ويب منخفضة الكود) باللغة العربية، بشكل <strong>مجاني ومفتوح للجميع</strong>. المحتوى مبني على كتاب أكاديمي مرخص بـ CC BY-SA، مع إضافات وأبحاث جديدة لتتناسب مع المطور العربي.</p>
+            <div class="book-cover">
+                <p>📄 <strong>النسخة الإلكترونية (PDF)</strong> — متاحة مجاناً بموجب رخصة المشاع الإبداعي<br> يمكنك مشاركتها، تعديلها، بل وبيعها، مع ذكر المصدر والترخيص بالمثل.</p>
+            </div>
+        </div>
+
+        <!-- القسم الثاني: الترخيص -->
+        <div class="section">
+            <h2>⚖️ ترخيص CC BY-SA 4.0</h2>
+            <p>هذا العمل مرخص بموجب <strong>المشاع الإبداعي: نسبة المصنف - الترخيص بالمثل 4.0 دولي</strong>. هذا يعني أن لك الحق في:</p>
+            <ul style="margin-right: 1.8rem; margin-top: 0.5rem;">
+                <li>✅ مشاركة الكتاب لأي غرض، حتى تجارياً.</li>
+                <li>✅ تعديله وبناء أعمال جديدة عليه.</li>
+                <li>✅ إعادة توزيعه بحرية.</li>
+            </ul>
+            <p style="margin-top: 0.8rem;">📌 فقط بشرطين: <strong>ذكر المؤلف الأصلي + الترخيص بالمثل</strong>.</p>
+            <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">🔗 رابط الرخصة الكامل</a></p>
+        </div>
+
+        <!-- القسم الثالث: دعم الترجمة القادمة (لقطة الشاشة الموجودة سابقاً) -->
+        <div class="section">
+            <h2>☕ دعم الترجمة القادمة</h2>
+            <p>هذا الكتاب نتاج مئات الساعات من الترجمة والتدقيق والأبحاث الإضافية. إذا استفدت منه وترغب في دعم ترجمة المزيد من الكتب التقنية إلى العربية، يمكنك إرسال تبرع اختياري إلى عنوان USDT (TRC20) أو Litecoin (LTC) التالي:</p>
+
+            <div class="price-card">
+                <p><strong>📞 عنوان التبرع (USDT – شبكة TRC20 فقط):</strong></p>
+                <div class="address-box">TWvzFuoHukeBUDjH5F21yLDAK1bpTZvwGw</div>
+                <p><strong>📞 عنوان التبرع (Litecoin – LTC):</strong></p>
+                <div class="address-box">ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96</div>
+            </div>
+
+            <div class="warning-note">
+                ⚠️ <strong>تنبيه هام جداً:</strong><br>
+                • أرسل فقط USDT عبر شبكة <strong>TRC20 (Tron)</strong> إلى العنوان الأول.<br>
+                • أرسل فقط <strong>Litecoin (LTC)</strong> عبر شبكة <strong>Litecoin الأصلية</strong> إلى العنوان الثاني.<br>
+                • تأكد من وجود رصيد صغير من TRX (لـ USDT) أو LTC (لرسوم LTC) لتغطية رسوم الشبكة.<br>
+                • إرسال عملة أخرى أو عبر شبكة خاطئة يؤدي إلى فقدان التبرع بشكل دائم.
+            </div>
+            <p>💚 <strong>شكراً لدعمك المعرفة العربية المفتوحة.</strong> المتبرعون سيتم شكرهم في الترجمة القادمة (يرجى إرسال إيميل بإثبات التبرع واسمك).</p>
+        </div>
+
+        <!-- قسم التواصل والنموذج -->
+        <div class="section">
+            <h2>📬 تواصل مع المؤلف</h2>
+            <p>للاستفسارات، أو لإرسال إثبات التبرع لإدراج اسمك في قائمة الشكر، يمكنك استخدام البريد الإلكتروني أو النموذج أدناه.</p>
+
+            <!-- نموذج Web3Forms (مجاني ويعمل على GitHub Pages) -->
+            <form action="https://api.web3forms.com/submit" method="POST" style="background: #f8fafc; padding: 1.2rem; border-radius: 24px; margin-top: 1rem;">
+                <!-- 🔑 ضع هنا ACCESS KEY الخاص بك من web3forms.com (يجب استبداله) -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" content="رسالة جديدة من قارئ كتاب أوراكل أبكس">
+
+                <div style="margin-bottom: 0.8rem;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 0.3rem;">الاسم الكامل</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 0.7rem; border-radius: 14px; border: 1px solid #cbd5e1;">
+                </div>
+                <div style="margin-bottom: 0.8rem;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 0.3rem;">البريد الإلكتروني (للرد)</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 0.7rem; border-radius: 14px; border: 1px solid #cbd5e1;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 0.3rem;">الرسالة</label>
+                    <textarea name="message" rows="4" required style="width: 100%; padding: 0.7rem; border-radius: 14px; border: 1px solid #cbd5e1;"></textarea>
+                </div>
+                <!-- حماية spam (honeypot) -->
+                <input type="checkbox" name="botcheck" style="display: none;">
+                <button type="submit" class="btn" style="background: #0f2b3d; color: white;">📨 إرسال الرسالة</button>
+            </form>
+            <p style="margin-top: 1rem;">📧 أو عبر البريد الإلكتروني المباشر: <strong>housamalaymo@gmail.com</strong>.</p>
+        </div>
+
+        <!-- القسم الأخير: رابط التحميل المباشر (لاحقاً) -->
+        <div class="section">
+            <h2>📥 تحميل الكتاب</h2>
+            <p>سيتم قريباً توفير رابط تحميل مباشر للنسخة المجانية (PDF). تابع الموقع أو تابع حسابات التواصل.</p>
+            <div class="flex-buttons">
+                <a href="#" class="btn" style="background: #2c5a7a; color: white;">📄 تحميل الجزء الأول (قريباً)</a>
+                <a href="#" class="btn" style="background: #2c5a7a; color: white;">📚 الكتاب الكامل (قريباً)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- التذييل -->
+    <div class="footer">
+        <p>© 2025 المهندس حسام الدين محمود الايمو | هذا العمل مرخص بموجب <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+        <p>📍 مبني على العمل الأصلي: <strong>Low Code Programming with APEX</strong> – University of Maribor Press</p>
+        
+    </div>
+</div>
+</body>
+</html>
