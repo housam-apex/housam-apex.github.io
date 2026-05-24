@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسرار اوراكل آبكس   | Oracle APEX Secrets - الكتاب </title>
+    <meta name="description" content="نصف الجزء الأول من كتاب Oracle APEX  لدعم الترجمة القادمة">
+    <!-- إضافة مكتبة qrcodejs من CDN لإنشاء رموز QR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Cairo', system-ui, sans-serif;
+            background: #f0f2f5;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        /* البسملة في أعلى الصفحة */
+        .bismillah {
+            text-align: center;
+            padding: 1.2rem 1rem 0.5rem 1rem;
+            font-size: 1.8rem;
+            font-weight: 500;
+            font-family: 'Amiri', 'Traditional Arabic', 'Cairo', serif;
+            color: #2c5a6e;
+            background: white;
+            letter-spacing: 1px;
+        }
+        .header {
+            background: linear-gradient(135deg, #0b2b38, #1a4a5f);
+            color: white;
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .badge {
+            background: #ff8c42;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #1e2a32;
+        }
+        .content {
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1.5rem;
+        }
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #0f3b4c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .free-note {
+            background: #e6f7e6;
+            border-right: 6px solid #2e7d32;
+            padding: 1rem;
+            border-radius: 18px;
+            margin: 1.2rem 0;
+        }
+        .price-card {
+            background: #fef5e8;
+            border-right: 6px solid #ff8c42;
+            padding: 1rem;
+            border-radius: 18px;
+            margin: 1.2rem 0;
+        }
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .address-box {
+            background: #0b1e2a;
+            color: #b9e6ff;
+            direction: ltr;
+            text-align: left;
+            font-family: monospace;
+            padding: 0.8rem;
+            border-radius: 16px;
+            word-break: break-all;
+            margin: 0.8rem 0;
+            font-size: 0.85rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #ff8c42;
+            color: #1e2a32;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+        }
+        .footer {
+            background: #f1f5f9;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #2c5a6e;
+            border-top: 1px solid #dce5ef;
+        }
+        .contact-row {
+            background: #f0f4f8;
+            padding: 0.8rem;
+            border-radius: 16px;
+            margin: 0.8rem 0;
+            text-align: center;
+        }
+        @media (max-width: 650px) {
+            .bismillah {
+                font-size: 1.4rem;
+                padding-top: 1rem;
+            }
+            .header h1 { font-size: 1.6rem; }
+            .content { padding: 1.5rem; }
+            h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- البسملة -->
+    <div class="bismillah">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    </div>
+
+    <div class="header">
+        <h1>📘 اسرار اوراكل آبكس <span style="font-size:1rem;">(Oracle APEX Secrets)</span></h1>
+        <p>ترجمة وإضافات مبنية على كتاب <strong>Low Code Programming with APEX</strong><br> الصادر عن <strong>University of Maribor Press</strong></p>
+        <div class="badge">📖 نصف الجزء الأول – مجاني</div>
+    </div>
+
+    <div class="content">
+        <!-- قسم التنبيه بالترخيص (مختصر جداً) -->
+        <div class="section">
+            <h2>⚖️ ترخيص العمل الأصلي</h2>
+            <p>العمل الأصلي مرخص بموجب <strong>CC BY-SA 4.0</strong>. للاطلاع على الرخصة: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">رابط الرخصة</a></p>
+            <p style="margin-top: 0.5rem;">📍 هذا العمل المترجم يتبع نفس شروط الترخيص.</p>
+        </div>
+
+        <!-- قسم التحميل المجاني (نصف الجزء الأول) -->
+        <div class="section">
+            <h2>📥 تحميل مجاني (نصف الجزء الأول)</h2>
+            <div class="free-note">
+                <p>📄 <strong>نصف الجزء الأول من الكتاب متاح الآن مجاناً</strong> – يشمل الفصول التمهيدية الأساسية من Oracle APEX.</p>
+                <p style="margin-top: 0.5rem;">🔗 رابط التحميل المباشر سيتم إضافته قريباً. تابع الموقع.</p>
+                <a href="#" class="btn" style="background: #2c7a4d;">📥 تحميل PDF (قريباً)</a>
+            </div>
+        </div>
+
+        <!-- الأسعار لكل جزء 0.5 LTC مع رموز QR -->
+        <div class="section">
+            <h2>💰 الحصول على الكتاب الكامل</h2>
+            <div class="price-card">
+                <p><strong>الجزء الأول (الكامل)</strong> – يحتوي على جميع فصول الجزء الأول (بما في ذلك النصف المجاني + الباقي).</p>
+                <p><strong>السعر: 0.5 LTC</strong></p>
+                <div class="qr-container" id="qrcode-part1"></div>
+                <div class="address-box">
+                    ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96
+                </div>
+            </div>
+            <div class="price-card">
+                <p><strong>الجزء الثاني (الكامل)</strong> – الفصول المتقدمة والتطبيقات العملية.</p>
+                <p><strong>السعر: 0.5 LTC</strong></p>
+                <div class="qr-container" id="qrcode-part2"></div>
+                <div class="address-box">
+                    ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96
+                </div>
+            </div>
+            <p>📧 لشراء أي جزء، يرجى إرسال المبلغ إلى عنوان LTC أعلاه، ثم التواصل عبر الإيميل أو الهاتف مع إثبات الدفع وسنرسل لك الملف.</p>
+        </div>
+
+        <!-- قسم التبرع (LTC فقط) -->
+        <div class="section">
+            <h2>☕ دعم الترجمة القادمة (اختياري)</h2>
+            <p>يمكنك دعم الترجمة القادمة لأجزاء جديدة من الكتاب عبر التبرع بعملة <strong>Litecoin (LTC)</strong>. كل الدعم يساعد في إكمال الأجزاء التالية.</p>
+            <div class="qr-container" id="qrcode-donate"></div>
+            <div class="address-box">
+                ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96
+            </div>
+            <div style="background: #fef1e0; padding: 0.8rem; border-radius: 16px; margin-top: 0.5rem;">
+                ⚠️ <strong>تنبيه:</strong> هذا العنوان مخصص لاستقبال <strong>Litecoin (LTC)</strong> فقط عبر شبكة Litecoin الأصلية. تأكد من صحة الشبكة.
+            </div>
+        </div>
+
+        <!-- قسم التواصل مع البريد الإلكتروني ورقم الهاتف -->
+        <div class="section">
+            <h2>📬 للتواصل أو إثبات الدفع</h2>
+            <p>للاستفسارات، أو لإرسال إثبات التبرع أو شراء جزء، يمكنك التواصل عبر:</p>
+            <div class="contact-row">
+                📧 <strong>البريد الإلكتروني:</strong> <span dir="ltr">housamalaymo@google.com</span>
+            </div>
+            <div class="contact-row">
+                📞 <strong>رقم الهاتف (واتساب / تليغرام):</strong> <span dir="ltr">+963 933 358 904</span>
+            </div>
+            <p>سيتم الرد عليك خلال 24 ساعة.</p>
+            <p style="font-size: 0.85rem; color: #5a6e7a;">ملاحظة: يُستخدم رقم الهاتف فقط للتواصل المتعلق بالكتاب. يرجى ذكر الغرض من الاتصال بوضوح.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 المهندس حسام الدين محمود الايمو | العمل مبني على كتاب <strong>Low Code Programming with APEX</strong> – University of Maribor Press – بموجب <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+    </div>
+</div>
+
+<script>
+    // عنوان LTC الخاص بك
+    const ltcAddress = 'ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96';
+
+    function makeQRCode(elementId, text) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.innerHTML = '';
+            new QRCode(element, {
+                text: text,
+                width: 150,
+                height: 150,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        }
+    }
+
+    window.onload = function() {
+        makeQRCode('qrcode-part1', ltcAddress);
+        makeQRCode('qrcode-part2', ltcAddress);
+        makeQRCode('qrcode-donate', ltcAddress);
+    };
+</script>
+</body>
+</html>
