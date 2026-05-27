@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://housam-apex.github.io/sitemap.xml
