@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسرار أوراكل أبكس - البرمجة منخفضة الشيفرة | الكتاب المفتوح</title>
+    <meta name="description" content="أول فصلين من كتاب أسرار أوراكل أبكس مجاناً. التبرع اختياري لدعم الترجمة القادمة.">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Cairo', 'Tahoma', sans-serif;
+            background: linear-gradient(145deg, #f4f7fb 0%, #e9eef3 100%);
+            color: #1f2a3e;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .bismillah {
+            text-align: center;
+            font-size: 1.8rem;
+            font-family: 'Amiri', 'Traditional Arabic', 'Cairo', serif;
+            color: #2c5f6e;
+            background: #fff;
+            padding: 1.2rem 1rem 0.3rem;
+            letter-spacing: 1px;
+        }
+
+        .header {
+            background: linear-gradient(120deg, #0b2b3b, #144a5e);
+            color: white;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .badge {
+            background: #f39c12;
+            color: #1f2a3e;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1.8rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #0f3b4c;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .free-note {
+            background: #eafaf1;
+            border-right: 6px solid #2e7d32;
+            padding: 1.2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f39c12;
+            color: #1f2a3e;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        .btn-download {
+            background: #2c7a4d;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .btn-download:hover {
+            background: #1f5e3a;
+        }
+
+        .price-card {
+            background: #fef7e6;
+            border-right: 6px solid #f39c12;
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            margin: 1.2rem 0;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .address-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin: 0.8rem 0;
+            background: #0b1e2a;
+            padding: 0.6rem 1rem;
+            border-radius: 18px;
+        }
+
+        .address-box {
+            flex: 1;
+            font-family: monospace;
+            direction: ltr;
+            text-align: left;
+            color: #b9e6ff;
+            word-break: break-all;
+            font-size: 0.85rem;
+        }
+
+        .copy-btn {
+            background: #2c5a6e;
+            border: none;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .copy-btn:hover {
+            background: #1e3f4f;
+        }
+
+        .donation-note {
+            background: #fef1e0;
+            padding: 0.8rem;
+            border-radius: 16px;
+            margin: 0.8rem 0;
+            font-size: 0.9rem;
+            border-right: 4px solid #f39c12;
+        }
+
+        .contact-form {
+            background: #f0f4f8;
+            padding: 1.2rem;
+            border-radius: 24px;
+            margin: 1rem 0;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.7rem;
+            margin: 0.5rem 0 1rem 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+        .contact-form button {
+            background: #2c5a6e;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .contact-form button:hover {
+            background: #1e3f4f;
+        }
+
+        .contact-row {
+            background: #f0f4f8;
+            padding: 0.8rem;
+            border-radius: 18px;
+            margin: 0.8rem 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #25D366;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .whatsapp-btn:hover {
+            background: #1da851;
+        }
+
+        .footer {
+            background: #eef2f7;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: #2c5a6e;
+            border-top: 1px solid #dce5ef;
+        }
+
+        @media (max-width: 650px) {
+            .bismillah { font-size: 1.4rem; }
+            .header h1 { font-size: 1.5rem; }
+            .content { padding: 1.2rem; }
+            h2 { font-size: 1.3rem; }
+            .address-wrapper { flex-direction: column; align-items: stretch; }
+            .copy-btn { align-self: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+    <div class="header">
+        <h1>📘 أسرار أوراكل أبكس <span style="font-size: 1rem;">البرمجة منخفضة الشيفرة</span></h1>
+        <p>ترجمة وإضافات مبنية على كتاب <strong>Low Code Programming with APEX</strong><br> الصادر عن <strong>University of Maribor Press</strong></p>
+        <div class="badge">📖 أول فصلين – مجانيان | مفتوح المصدر</div>
+    </div>
+
+    <div class="content">
+        <!-- ترخيص مختصر -->
+        <div class="section">
+            <h2>⚖️ ترخيص العمل الأصلي</h2>
+            <p>العمل الأصلي مرخص بموجب <strong>CC BY-SA 4.0</strong>. <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">رابط الرخصة الكامل</a></p>
+            <p style="margin-top: 0.5rem;">📍 هذا العمل المترجم يتبع نفس شروط الترخيص.</p>
+        </div>
+
+        <!-- تحميل مجاني (ملف PDF واحد للفصلين) -->
+        <div class="section">
+            <h2>📥 تحميل مجاني – أول فصلين</h2>
+            <div class="free-note">
+                <p>📄 <strong>ملف PDF واحد يضم الفصلين الأول والثاني</strong></p>
+                <p style="margin: 1rem 0;">
+                    <a href="https://raw.githubusercontent.com/housam-apex/housam-apex.github.io/main/part1/first_chapter_github.pdf" class="btn btn-download" id="downloadBtn">📥 تحميل الفصلين (PDF)</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- شراء الأجزاء الكاملة 0.5 LTC لكل جزء -->
+        <div class="section">
+            <h2>💰 الكتاب الكامل (الأجزاء 1 و 2)</h2>
+            <div class="price-card">
+                <p><strong>الجزء الأول (الكامل)</strong> – السعر: <strong>0.5 LTC</strong></p>
+                <div class="qr-container" id="qrcode-part1"></div>
+                <div class="address-wrapper">
+                    <span class="address-box" id="ltcAddressPart1">ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96</span>
+                    <button class="copy-btn" data-target="ltcAddressPart1">📋 نسخ العنوان</button>
+                </div>
+            </div>
+            <div class="price-card">
+                <p><strong>الجزء الثاني (الكامل)</strong> – السعر: <strong>0.5 LTC</strong></p>
+                <div class="qr-container" id="qrcode-part2"></div>
+                <div class="address-wrapper">
+                    <span class="address-box" id="ltcAddressPart2">ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96</span>
+                    <button class="copy-btn" data-target="ltcAddressPart2">📋 نسخ العنوان</button>
+                </div>
+            </div>
+            <p>📧 لشراء أي جزء: أرسل المبلغ إلى عنوان LTC أعلاه، ثم تواصل عبر الإيميل أو الهاتف مع إثبات الدفع، وسنرسل لك الملف فوراً.</p>
+        </div>
+
+        <!-- دعم اختياري -->
+        <div class="section">
+            <h2>☕ دعم الترجمة القادمة (اختياري)</h2>
+            <p>⚠️ <strong>التبرع اختياري تماماً</strong> – يساعد في إكمال الترجمة لأجزاء جديدة.</p>
+            <div class="qr-container" id="qrcode-donate"></div>
+            <div class="address-wrapper">
+                <span class="address-box" id="ltcAddressDonate">ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96</span>
+                <button class="copy-btn" data-target="ltcAddressDonate">📋 نسخ العنوان</button>
+            </div>
+            <div class="donation-note">
+                ⚠️ <strong>تنبيه:</strong> هذا العنوان مخصص لاستقبال <strong>Litecoin (LTC)</strong> فقط عبر شبكة Litecoin الأصلية.
+            </div>
+        </div>
+
+        <!-- التواصل مع نموذج إرسال البريد وزر واتساب بجانب الهاتف -->
+        <div class="section">
+            <h2>📬 للتواصل أو إثبات الدفع</h2>
+            <div class="contact-row">
+                📧 <strong>البريد الإلكتروني:</strong> <span dir="ltr">housamalaymo@gmail.com</span>
+            </div>
+            <div class="contact-row">
+                📞 <strong>رقم الهاتف:</strong> <span dir="ltr">+963 933 358 904</span>
+                <a href="https://wa.me/963933358904" target="_blank" class="whatsapp-btn">📱 واتساب</a>
+            </div>
+
+            <!-- نموذج الاتصال الفعال باستخدام Web3Forms (يتطلب مفتاح Access Key) -->
+            <div class="contact-form">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="c12de9d4-65fb-4105-ad41-89eba3015b8e">
+                    <input type="hidden" name="subject" content="رسالة جديدة من قارئ كتاب أسرار أوراكل أبكس">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+
+                    <div>
+                        <label>الاسم الكامل</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div>
+                        <label>البريد الإلكتروني (للرد)</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div>
+                        <label>الرسالة</label>
+                        <textarea name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">📨 إرسال الرسالة</button>
+                </form>
+                <p style="font-size:0.75rem; margin-top:0.5rem;">ملاحظة: سيتم الرد خلال 24 ساعة.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 المهندس حسام الدين محمود  الايمو| العمل مبني على كتاب <strong>Low Code Programming with APEX</strong> – University of Maribor Press – بموجب <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+        <p><a href="#">🔗 رابط المستودع الرسمي (GitHub)</a></p>
+    </div>
+</div>
+
+<script>
+    const ltcAddress = 'ltc1qkt6qadj6vuj29Ixc9hjxspzupz5fsu8d09uu96';
+
+    function makeQRCode(elementId, text) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.innerHTML = '';
+            new QRCode(element, {
+                text: text,
+                width: 150,
+                height: 150,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        }
+    }
+
+    function setupCopyButtons() {
+        const buttons = document.querySelectorAll('.copy-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('data-target');
+                const textElement = document.getElementById(targetId);
+                if (textElement) {
+                    const textToCopy = textElement.innerText;
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '✅ تم النسخ!';
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                        }, 1500);
+                    }).catch(err => {
+                        alert('حدث خطأ أثناء النسخ: ' + err);
+                    });
+                }
+            });
+        });
+    }
+
+    window.onload = () => {
+        makeQRCode('qrcode-part1', ltcAddress);
+        makeQRCode('qrcode-part2', ltcAddress);
+        makeQRCode('qrcode-donate', ltcAddress);
+        setupCopyButtons();
+    };
+</script>
+</body>
+</html>
